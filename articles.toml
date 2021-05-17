@@ -1,0 +1,8 @@
+[[article]]
+title = "Test Article"
+date = 2026-10-01 20:41:09Z
+updated = 2026-10-01 21:29:16Z
+tags = ["debug", "test"]
+description = "This is a test article"
+image = { path = "FMsGbu0XEAUEyfx.jpg", alt = "THIS KITTEN is not a certified audio/video technician" }
+filename = "test.md"
