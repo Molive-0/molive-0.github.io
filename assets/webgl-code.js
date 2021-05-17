@@ -5,8 +5,7 @@ var prog, rect;
 var startTime, currTime, time, aspect;
 
 document.onmousemove = updateMouse
-function updateMouse(event)
-{
+function updateMouse(event) {
 	var eventDoc, doc, body;
 
 	event = event || window.event;
@@ -20,8 +19,8 @@ function updateMouse(event)
 			(doc && doc.scrollLeft || body && body.scrollLeft || 0) -
 			(doc && doc.clientLeft || body && body.clientLeft || 0);
 		event.pageY = event.clientY +
-			(doc && doc.scrollTop  || body && body.scrollTop  || 0) -
-			(doc && doc.clientTop  || body && body.clientTop  || 0 );
+			(doc && doc.scrollTop || body && body.scrollTop || 0) -
+			(doc && doc.clientTop || body && body.clientTop || 0);
 	}
 
 	targetX = (canvas.clientWidth - event.pageX) / canvas.clientWidth;
@@ -60,14 +59,14 @@ function setupShaders() {
 	posAttribute = gl.getAttribLocation(prog, "pos");
 	gl.enableVertexAttribArray(posAttribute);
 
-	timeUniform = gl.getUniformLocation(prog, "time");
+	timeUniform = gl.getUniformLocation(prog, "iTime");
 	aspectUniform = gl.getUniformLocation(prog, "aspect")
 	mouseUniform = gl.getUniformLocation(prog, "mouse")
 
 	rect = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, rect);
 
-	var verts = [-1,-1,0,-1,1,0,1,-1,0,1,-1,0,1,1,0,-1,1,0];
+	var verts = [-1, -1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, 1, 1, 0, -1, 1, 0];
 	gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(verts), gl.STATIC_DRAW);
 
 	targetX = (mouseX = 0.5);
@@ -87,7 +86,7 @@ function draw() {
 	gl.clear(gl.COLOR_BUFFER_BIT);
 
 	gl.bindBuffer(gl.ARRAY_BUFFER, rect);
-	gl.vertexAttribPointer(posAttribute, 3, gl.FLOAT, false, 3*4, 0);
+	gl.vertexAttribPointer(posAttribute, 3, gl.FLOAT, false, 3 * 4, 0);
 	gl.drawArrays(gl.TRIANGLES, 0, 6);
 
 	mouseX = (7 * mouseX + targetX) / 8;
@@ -97,10 +96,10 @@ function draw() {
 function setupWebGL() {
 	canvas = document.getElementById("bg-live");
 
-	canvas.width  = canvas.clientWidth  / 5;
+	canvas.width = canvas.clientWidth / 5;
 	canvas.height = canvas.clientHeight / 5;
 
-	try { gl = canvas.getContext("webgl"); } catch (e) {}
+	try { gl = canvas.getContext("webgl"); } catch (e) { }
 	if (!gl) alert("Cannot initialize WebGL");
 
 	setupShaders();

@@ -1,6 +1,7 @@
-# slerpy.xyz
-*My own personal demoscene landing page*
+# jjsh1g20
 
-This is the source code for my website. This readme file only exists, because Github won't host the website without it. There isn't a lot I can say about it. It's just a simple little website.
+*The code for the website*
 
-Visit now: https://slerpyyy.github.io
+Based on slerpy.xyz
+
+https://www.southampton.ac.uk/~jjsh1g20/
