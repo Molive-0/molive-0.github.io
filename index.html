@@ -2,9 +2,12 @@
 <html>
 
 <!--
-	For reference, I hate everything about this site.
-	I tried to create a cool looking shader. I really failed.
-	I don't think any of this site is truly original.
+	This originally had a statement complaining about how much I hated this
+	site. Since then, I've realised that I was never trying to make something
+	of use, and as this site is generally useless I guess I've succeeded.
+	I'm not trying to get a job, or impress. I'm making a stupid site, and
+	that's totally fine. If I do try and make a proper site, I should probably
+	try to not blatantly copy slerpy :)
 -->
 
 <head>
@@ -15,6 +18,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link href="assets/favicon.png" rel="icon">
+	<link rel="stylesheet" href="https://www.southampton.ac.uk/~jjsh1g20/webring/onionring.css">
 
 	<script id="vsh" type="x-shader/x-vertex">
 			precision mediump float;
@@ -27,26 +31,25 @@
 			precision mediump float;
 			uniform float iTime;
 			uniform float aspect;
-			uniform vec2 mouse;
 			varying vec2 uv;
 			const float PI = 3.14159265;
 			float image(vec2 uv, float time) {
-  				uv = (mat2(sin(time/2.),cos(time/2.),-cos(time/2.),sin(time/2.))*(uv-0.5))+0.5;
+  				uv = abs((mat2(sin(time/2.),cos(time/2.),-cos(time/2.),sin(time/2.))*(uv-0.5))+0.5);
    				return sin(pow(uv.y,uv.x)+time*4.)+cos(uv.y*9.+time*5.)+sin(uv.x*4.+time*6.)+cos(pow(uv.x,uv.y)+time*7.)
     			+sin(pow(uv.y,uv.x)*80.+time*8.)+cos(pow(uv.x,uv.y)*90.+time*9.);
 			}
 			void main(void){
-				vec2 u=abs(uv)*vec2(aspect,1)*0.1+0.4;
-				gl_FragColor.xyz = vec3(clamp(
+				vec2 u=uv*vec2(aspect,1)*0.2+0.4;
+				gl_FragColor.xyz = vec3((clamp(
 				abs(vec3(image(u,iTime+0.05),image(u,iTime+0.1),image(u,iTime+0.15)))*0.1 +
 				abs(vec3(image(u,iTime+1.05),image(u,iTime+1.1),image(u,iTime+1.15)))*0.1 +
-				abs(vec3(image(u,iTime+2.05),image(u,iTime+2.1),image(u,iTime+2.15)))*0.1 +
-				vec3((sin(u.y+iTime*2.)+1.)/2.,(sin(u.x+iTime*3.)+1.)/2.,(sin(u.y+iTime*5.)+1.)/2.)*0.2
-				,0.,1.)*0.7);
+				abs(vec3(image(u,iTime+2.05),image(u,iTime+2.1),image(u,iTime+2.15)))*0.1,0.,1.) +
+				vec3((sin(u.y+iTime*2.)+1.)/2.,(sin(u.x+iTime*3.)+1.)/2.,(sin(u.y+iTime*5.)+1.)/2.)*0.3
+				)*0.6);
+				gl_FragColor.w = 1.;
 			}
 		</script>
 
-	<script type="text/javascript" src="assets/gl-matrix-min.js"></script>
 	<script type="text/javascript" src="assets/webgl-code.js"></script>
 
 	<style>
@@ -73,7 +76,8 @@
 		a,
 		p,
 		h1,
-		h2 {
+		h2,
+		td {
 			margin-top: 0px;
 			margin-bottom: 0px;
 			text-align: justify;
@@ -112,13 +116,8 @@
 			width: 100%;
 		}
 
-		#bg-still {
-			min-width: 100%;
-			display: none;
-		}
-
 		.wrapper {
-			margin: 128px auto;
+			margin: 100px auto;
 			width: 42em;
 		}
 
@@ -130,16 +129,20 @@
 			height: 100%;
 		}
 
-		@media screen and (max-width: 800px) {
-			#bg-still {
-				display: initial;
-			}
+		#sotonugmlwr {
+			margin: 0 auto;
+			padding: 15px;
+			/* creates some space around the widget */
+		}
 
-			#bg-live {
-				display: none;
-			}
+		#sotonugmlwr table {
+			background-color: #55555555;
+		}
+
+		@media screen and (max-width: 800px) {
 
 			.wrapper {
+				margin: 32px auto;
 				width: 75%;
 			}
 
@@ -156,13 +159,12 @@
 
 <body onload="setupWebGL();">
 	<div class="title-card">
-		<img src="assets/preview.png" class="bg" id="bg-still">
 		<canvas class="bg" id="bg-live"></canvas>
 		<div class="fg">
 			<div class="wrapper">
 				<h1>Molive</h1>
-				<h2>/'mɒ:lɪv/ </h2>
-				<p>he/him • coder • """shader artist""" • student at <a href="http://www.southampton.ac.uk">Southampton
+				<h2>/'mɒ:lɪv/ (sometimes lowercase)</h2>
+				<p>He/Him • Coder • """Shader Artist""" • Student at <a href="http://www.southampton.ac.uk">Southampton
 						University</a></p>
 				<p></p>
 				<p>Hello! I'm Molive. I sometimes create demoscene productions, with exremely varying success (but
@@ -171,7 +173,9 @@
 					you will get if you do.
 
 				</p>
-				<p>I've <s>stolen</s> borrowed this site from <a href="http://www.slerpy.xyz/">slerpy.</a>
+				<p>I've <s>stolen</s> borrowed a lot of this site from <a href="http://www.slerpy.xyz/">slerpy</a>. As
+					such,
+					this site shouldn't be taken <i>too</i> seriously.
 				</p>
 				<div class="links">
 					<a href="https://demozoo.org/sceners/72284/">Demozoo</a>
@@ -181,6 +185,11 @@
 					<a href="https://twitter.com/moliveofsnes">Twitter</a>
 					<a href="https://titandemo.org/">Titan</a>
 					<a href="http://www.slipstreamdemo.info/">Slipstream</a>
+				</div>
+				<div id="sotonugmlwr">
+					<script type="text/javascript"
+						src="https://www.southampton.ac.uk/~jjsh1g20/webring/onionring-widget.js" ,
+						charset="utf-8"></script>
 				</div>
 			</div>
 		</div>

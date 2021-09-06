@@ -6,16 +6,29 @@
 //this file builds the list of sites in the ring for displaying on your index page
 
 var tag = document.getElementById('index');
-regex = /^https:\/\/|\/$/g; //strips the https:// and trailing slash off the urls for aesthetic purposes
-regex2 = /www.southampton.ac.uk\/~|www.personal.soton.ac.uk\/~/g;
 
-list = "";
-for (i = 0; i < sites.length; i++) {
-  list += `<li><a href='${sites[i]}'>${sites[i].replace(regex, "").replace(regex2, "")}</a></li>`;
-}
+sites = null;
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '/~jjsh1g20/webring/sites.json', true);
+xhr.onload = function () {
+  var status = xhr.status;
+  if (status != 200) {
+    tag.insertAdjacentHTML('afterbegin', `
+  Failed to retrieve the sites json.
+    `);
+  } else {
+    sites = JSON.parse(xhr.response);
 
-tag.insertAdjacentHTML('afterbegin', `
+    list = "";
+    for (i = 0; i < sites.length; i++) {
+      list += `<li><a href='/~${sites[i]}'>${sites[i]}</a></li>`;
+    }
+
+    tag.insertAdjacentHTML('afterbegin', `
 <ul>
 ${list}
 </ul>
 `);
+  }
+}
+xhr.send();
