@@ -64,13 +64,13 @@ xhr.onload = function () {
       tag.insertAdjacentHTML('afterbegin', `
   <table>
     <tr>
-      <td class='webring-prev'><a href='/~${sites[previousIndex]}'>← previous</a></td>
+      <td class='webring-prev'><a href='/~${sites[previousIndex]}/'>← previous</a></td>
       <td class='webring-info'>This site is part of ${ringName}</br>
       <span class='webring-links'>
         <a href='javascript:void(0)' onclick='randomSite()'>random</a> | 
         <a href='/~jjsh1g20/webring/'>index</a> | 
         <a href='https://garlic.garden/onionring/'>what is this?</a></span></td>
-      <td class='webring-next'><a href='/~${sites[nextIndex]}'>next →</a></td>
+      <td class='webring-next'><a href='/~${sites[nextIndex]}/'>next →</a></td>
     </tr>
   </table>
   `);
@@ -84,5 +84,5 @@ function randomSite() {
   otherSites = sites.slice(); //create a copy of the sites list
   otherSites.splice(thisIndex, 1); //remove the current site so we don't just land on it again
   randomIndex = Math.floor(Math.random() * otherSites.length);
-  location.href = '/~' + otherSites[randomIndex];
+  location.href = '/~' + otherSites[randomIndex] + '/';
 }
