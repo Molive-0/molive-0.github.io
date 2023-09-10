@@ -9,7 +9,7 @@ var tag = document.getElementById('index');
 
 sites = null;
 var xhr = new XMLHttpRequest();
-xhr.open('GET', '/~jjsh1g20/webring/sites.json', true);
+xhr.open('GET', 'https://mo.molive.live/webring/sites.json', true);
 xhr.onload = function () {
   var status = xhr.status;
   if (status != 200) {
@@ -21,7 +21,7 @@ xhr.onload = function () {
 
     list = "";
     for (i = 0; i < sites.length; i++) {
-      list += `<li><a href='/~${sites[i]}'>${sites[i]}</a></li>`;
+      list += `<li><a href='${sites[i]}'>${sites[i]}</a></li>`;
     }
 
     tag.insertAdjacentHTML('afterbegin', `

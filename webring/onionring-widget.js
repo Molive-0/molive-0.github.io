@@ -5,22 +5,18 @@
 // === ONIONRING-WIDGET ===
 //this file contains the code which builds the widget shown on each page in the ring. ctrl+f 'EDIT THIS' if you're looking to change the actual html of the widget
 
-var ringID = 'sotonugmlwr';
+var ringID = 'molivebuds';
 
-var ringName = 'the Southampton Uni Webring';
+var ringName = 'Molive\'s Bestest Buds';
 
 var tag = document.getElementById(ringID); //find the widget on the page
 
 thisSite = window.location.href; //get the url of the site we're currently on
-regex = /^http(s)?:\/\/(www.)?(southampton|personal.soton).ac.uk\/~/g; //remove the lead
-thisSite = thisSite.replace(regex, "");
 thisIndex = null;
 
 sites = null;
 var xhr = new XMLHttpRequest();
-//xhr.responseType = 'json';
-//xhr.timeout = 4000;
-xhr.open('GET', '/~jjsh1g20/webring/sites.json', true);
+xhr.open('GET', 'https://mo.molive.live/webring/sites.json', true);
 xhr.onload = function () {
   var status = xhr.status;
   if (status != 200) {
@@ -48,7 +44,7 @@ xhr.onload = function () {
       tag.insertAdjacentHTML('afterbegin', `
 <table>
   <tr>
-    <td>This site isn't part of the Soton Webring yet. You should talk to jjsh1g20 to have your site added to the list!</td>
+    <td>This site isn't made by one of Molive's bestest buds! They should go talk to mo.molive.live and sort it out.</td>
   </tr>
 </table>
   `);
@@ -60,21 +56,32 @@ xhr.onload = function () {
       previousIndex = (thisIndex - 1 < 0) ? sites.length - 1 : thisIndex - 1;
       nextIndex = (thisIndex + 1 >= sites.length) ? 0 : thisIndex + 1;
 
+      indexText = ""
+      //if you've chosen to include an index, this builds the link to that
+      //if (useIndex) {
+      indexText = `<a href='${indexPage}'>index</a> | `;
+      //}
+
+      randomText = ""
+      //if you've chosen to include a random button, this builds the link that does that
+      //if (useRandom) {
+      randomText = `<a href='javascript:void(0)' onclick='randomSite()'>random</a> | `;
+      //}
+
       //this is the code that displays the widget - EDIT THIS if you want to change the structure
       tag.insertAdjacentHTML('afterbegin', `
-  <table>
-    <tr>
-      <td class='webring-prev'><a href='/~${sites[previousIndex]}/'>← previous</a></td>
-      <td class='webring-info'>This site is part of ${ringName}</br>
-      <span class='webring-links'>
-        <a href='javascript:void(0)' onclick='randomSite()'>random</a> | 
-        <a href='/~jjsh1g20/webring/'>index</a> | 
-        <a href='https://garlic.garden/onionring/'>what is this?</a></span></td>
-      <td class='webring-next'><a href='/~${sites[nextIndex]}/'>next →</a></td>
-    </tr>
-  </table>
-  `);
-
+      <table>
+        <tr>
+          <td class='webring-prev'><a href='${sites[previousIndex]}'>â† previous</a></td>
+          <td class='webring-info'>This site is part of the ${ringName} webring</br>
+          <span class='webring-links'>
+            ${randomText}
+            ${indexText}
+            <a href='https://garlic.garden/onionring/'>what is this?</a></span></td>
+          <td class='webring-next'><a href='${sites[nextIndex]}'>next â†’</a></td>
+        </tr>
+      </table>
+      `);
     }
   }
 }
@@ -84,5 +91,5 @@ function randomSite() {
   otherSites = sites.slice(); //create a copy of the sites list
   otherSites.splice(thisIndex, 1); //remove the current site so we don't just land on it again
   randomIndex = Math.floor(Math.random() * otherSites.length);
-  location.href = '/~' + otherSites[randomIndex] + '/';
+  location.href = otherSites[randomIndex];
 }
