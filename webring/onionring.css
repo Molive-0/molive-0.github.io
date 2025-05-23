@@ -5,32 +5,36 @@
 /* === ONIONRING.CSS === */
 /* this file affects the style of the widget. remember to replace all instances of #webringid with whatever value you have for ringID in the onionring-widget.js file. make sure it still has the # at the front, though! probably easiest to use find+replace to do it */
 
-#sotonugmlwr {
+#molivebuds {
   margin: 0 auto;
-  padding: 15px; /* creates some space around the widget */
+  padding: 15px;
+  /* creates some space around the widget */
 }
 
-#sotonugmlwr table {
-  background-color: #f0f0f0; /* makes the background white-ish */
-  margin: 0 auto; /* centers the widget */
+#molivebuds table {
+  background-color: #f0f0f0;
+  /* makes the background white-ish */
+  margin: 0 auto;
+  /* centers the widget */
 }
 
-#sotonugmlwr table tr td {
-  padding: 15px; /* creates some space between the links and text inside the widget */
+#molivebuds table tr td {
+  padding: 15px;
+  /* creates some space between the links and text inside the widget */
 }
 
-#sotonugmlwr .webring-prev {
-  text-align:right;
+#molivebuds .webring-prev {
+  text-align: right;
 }
 
-#sotonugmlwr .webring-info {
-   text-align:center;
+#molivebuds .webring-info {
+  text-align: center;
 }
 
-#sotonugmlwr .webring-next {
-  text-align:left;
+#molivebuds .webring-next {
+  text-align: left;
 }
 
-#sotonugmlwr .webring-links {
-  font-size:small;
+#molivebuds .webring-links {
+  font-size: small;
 }
