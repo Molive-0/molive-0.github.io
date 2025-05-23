@@ -7,7 +7,7 @@
 
 var ringID = 'molivebuds';
 
-var ringName = 'Molive\'s Bestest Buds';
+var ringName = 'Stargaze';
 
 //the full URL of the index page. if you're not using one, you don't have to specify anything here
 var indexPage = 'https://mo.molive.live/webring/index.html';
@@ -47,7 +47,7 @@ xhr.onload = function () {
       tag.insertAdjacentHTML('afterbegin', `
 <table>
   <tr>
-    <td>This site isn't made by one of Molive's bestest buds! They should go talk to mo.molive.live and sort it out.</td>
+    <td>This site isn't linked to the webring! The admin should go talk to mo.molive.live and sort it out.</td>
   </tr>
 </table>
   `);
