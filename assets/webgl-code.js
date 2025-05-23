@@ -72,7 +72,7 @@ function draw() {
 	glCheck();
 	//console.log("b");
 	currTime = (new Date()).getTime()
-	time = (currTime - startTime) / 1000.0;
+	time = (currTime - startTime) / 1500.0;
 	aspect = canvas.clientWidth / canvas.clientHeight;
 	//console.log("b");
 	gl.uniform1f(timeUniform, time);
