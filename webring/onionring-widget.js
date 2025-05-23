@@ -75,13 +75,13 @@ xhr.onload = function () {
       tag.insertAdjacentHTML('afterbegin', `
       <table>
         <tr>
-          <td class='webring-prev'><a href='${sites[previousIndex]}'><b class="webring-arrow">☜</b></a></td>
+          <td class='webring-prev'><a href='${sites[previousIndex]}'><b>↜</b></a></td>
           <td class='webring-info'>This site is part of the ${ringName} webring</br>
           <span class='webring-links'>
             ${randomText}
             ${indexText}
             <a href='https://garlic.garden/onionring/'>what is this?</a></span></td>
-          <td class='webring-next'><a href='${sites[nextIndex]}'><b class="webring-arrow">☞</b></a></td>
+          <td class='webring-next'><a href='${sites[nextIndex]}'><b>↝</b></a></td>
         </tr>
       </table>
       `);
