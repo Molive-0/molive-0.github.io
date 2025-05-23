@@ -9,6 +9,9 @@ var ringID = 'molivebuds';
 
 var ringName = 'Molive\'s Bestest Buds';
 
+//the full URL of the index page. if you're not using one, you don't have to specify anything here
+var indexPage = 'https://mo.molive.live/webring/index.html';
+
 var tag = document.getElementById(ringID); //find the widget on the page
 
 thisSite = window.location.href; //get the url of the site we're currently on
