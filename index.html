@@ -28,18 +28,20 @@
 		<section id="home">
 			<div class="content">
 				<h1>Molive</h1>
-				<h2>/'mɒ:lɪv/ <span class="smaller">(otherwise known as John Hunter)</span>
+				<h2><a href="https://ipa-reader.com/?text=m%C9%92%3Al%C9%AAv&voice=Amy">/'mɒ:lɪv/</a> <span
+						class="smaller">(otherwise known as John Hunter)</span>
 				</h2>
 				<p class="tagline">He/They • Senior Software Engineer • Graphics Programmer</p>
 				<div class="text-body">
 					<div>
-						Hello! I'm Molive, a senior software engineer in Cheltenham.
+						Hello! I'm Molive, a senior software engineer based in Cheltenham, England.
 					</div>
 					<div>
-						I sometimes create demoscene productions, with varying success (but they're never that good).
+						I sometimes create demoscene productions. Check my portfolio below for some highlights, or my
+						Demozoo page for a full list.
 					</div>
 					<div>
-						Scroll down for my portfolio.</div>
+						Scroll down this page for my portfolio.</div>
 				</div>
 				<div>
 					<h4>Internal Links</h4>
@@ -70,8 +72,130 @@
 					charset="utf-8"></script>
 			</div>
 			<div class="portfolio">
-				<h2>Portfolio <span class="smaller">(still being filled in)</span></h2>
+				<h2>Portfolio</h2>
 				<hr />
+				<!-- Tape Drive -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Tape Drive</h4>
+						<h5>2024-present • Engine • Windows, Linux</h5>
+						<p class="text-body">
+							Custom rendering solution for signed distance fields defined as mathematical functions that
+							JIT compiles them to SPIR-V. Based originally on my work at university. Renders entirely
+							using the raytracing pipeline, and can reach 400fps at 1080p. Written in Vulkan, GLSL, and
+							Rust. In active development.
+						</p>
+						<p>
+							Links:
+							<a href="https://git.stargaze.group/molive/tape-drive">Stargaze Git</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="static/portfolio/tape-drive.png">
+							<img src="static/portfolio/tape-drive.png"
+								alt="A wobbly implicit surface being lit in blue and orange. An options panel is open to the left" />
+						</a>
+					</div>
+					<hr />
+				</div>
+				<!-- Pico-niccc-480p -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Pico-niccc-480p</h4>
+						<h5>2023 • Demo • Raspberry Pi Pico 1</h5>
+						<p class="text-body">
+							Version of PICO NICCC (see later in list) that renders 4x as many pixels - but,
+							counterintuitively, consumes <i>less</i> framebuffer RAM. Uses a custom, insane format for
+							storing intermediate frames.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/productions/328163/">Demozoo</a> |
+							<a
+								href="https://files.scene.org/get/parties/2023/ontrack23/wild/piconiccc480.tar.gz">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<span>[no image]</span>
+					</div>
+					<hr />
+				</div>
+				<!-- Unidentified Flying Object -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Unidentified Flying Object</h4>
+						<h5>2023 • Executable Graphics • Windows</h5>
+						<p class="text-body">
+							2194 byte executable that renders a blurry falling kitten. Coded in a couple hours during a
+							party.
+							Written in Blossom and GLSL. Based on <a
+								href="static/portfolio/ufo_original_inspiration.jpg">this image</a>.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/graphics/322461/">Demozoo</a> |
+							<a
+								href="https://files.scene.org/get/parties/2023/revision23/4k_executable_graphics/moliveufo.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="static/portfolio/molive_ufo.png">
+							<img src="static/portfolio/molive_ufo.png"
+								alt="A blurry render of a black kitten falling through the frame" />
+						</a>
+					</div>
+					<hr />
+				</div>
+				<!-- Robot Rock -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Robot Rock</h4>
+						<h5>2022 • Music • Super Nintendo Entertainment System</h5>
+						<p class="text-body">
+							Extremely accurate cover of Robot Rock by Daft Punk for the SNES. Full CD-quality. Uses
+							cycle accurate code to decompress ADPCM audio on the fly, and requires a custom cart to
+							function correctly. Play back in Higan or on an FXPAK.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/productions/312188/">Demozoo</a> |
+							<a
+								href="https://files.scene.org/get/parties/2022/nova22/old_school_demo/molive-robotrock.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<!--<img src="static/portfolio/robot-rock.jpg"
+							alt="A SNES version of the cover for the single Robot Rock by Daft Punk" /> -->
+						[Recording to follow]
+					</div>
+					<hr />
+				</div>
+				<!-- PICO NICCC -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>PICO NICCC</h4>
+						<h5>2022 • Demo • Raspberry Pi Pico 1</h5>
+						<h5>Placed third in competition!</h5>
+						<p class="text-body">
+							Port of the ST-NICCC 2000 demo. Uses a custom polygon renderer designed for the RP2040. Runs
+							at an astounding 1000fps if tweaked. Comes with an absolutely unhinged 4am explanation
+							video.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/productions/307538/">Demozoo</a> |
+							<a href="https://www.youtube.com/watch?v=rkz4qkpBueg">Youtube</a> |
+							<a
+								href="https://files.scene.org/get/parties/2022/revision22/wild/piconiccc.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="https://www.youtube.com/watch?v=rkz4qkpBueg"><img src="static/portfolio/pico-niccc.jpg"
+								alt="Molive, in their bedroom, holding a Raspberry Pi Pico, with the demo playing picture-in-picture" />
+						</a>
+					</div>
+					<hr />
+				</div>
 				<!-- Sanitised -->
 				<div class="portfolio-item">
 					<div class="portfolio-data">
@@ -108,7 +232,7 @@
 						</p>
 						<p>
 							Links:
-							<a href="https://demozoo.org/music/205209/">Demozoo</a> |
+							<a href="https://demozoo.org/graphics/288442/">Demozoo</a> |
 							<a href="https://www.shadertoy.com/view/3ldczS">Shadertoy</a> |
 							<a
 								href="https://files.scene.org/get/parties/2020/hogmanay20/graphics/bymoliveaged18.zip">Download</a>
@@ -122,6 +246,45 @@
 					</div>
 					<hr />
 				</div>
+				<!-- Wikilink -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Wikilink</h4>
+						<h5>2020 • Tool • Windows</h5>
+						<p class="text-body">
+							A wikiracer that performs a breadth-first search on Wikipedia (and other mediawikis) to
+							find the shortest connection between two pages by following links. Appears to have broken
+							after a change in the Wikipedia API.
+						</p>
+						<p>
+							Links:
+							<a href="https://github.com/Molive-0/wikilink">Github</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						[no image]
+					</div>
+					<hr />
+				</div>
+				<!-- BasicTracker -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>BasicTracker</h4>
+						<h5>2020 • Tool • Windows (C#)</h5>
+						<p class="text-body">
+							A simple music tracker. Written as my A-level computer science project. May not run on new
+							systems.
+						</p>
+						<p>
+							Links:
+							<a href="https://github.com/Molive-0/BasicTracker">Github</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						[image to follow when/if I can get it running]
+					</div>
+					<hr />
+				</div>
 				<!-- A Rude Interruption -->
 				<div class="portfolio-item">
 					<div class="portfolio-data">
@@ -129,7 +292,7 @@
 						<h5>2019 • Music • Super Nintendo Entertainment System</h5>
 						<p class="text-body">
 							Joke production which happens to showcase playing back CD-quality audio on the SNES.
-							Technique is based on one by Blaarg, and is cycle-accurate. The fire alarm had gone off at
+							Technique is based on one by Blargg, and is cycle-accurate. The fire alarm had gone off at
 							the party earlier.
 						</p>
 						<p>
@@ -150,8 +313,9 @@
 						<h4>SNES-NICCC 2000</h4>
 						<h5>2019 • Demo • Super Nintendo Entertainment System</h5>
 						<p class="text-body">
-							Created a polygon renderer from scratch for the SNES using the SuperFX expansion chip. Runs
-							at a higher than normal framerate using a quadruple buffering technique.
+							Port of the ST-NICCC 2000 demo. Created a polygon renderer from scratch for the SNES using
+							the SuperFX expansion chip. Runs at a higher than normal framerate using a quadruple
+							buffering technique.
 						</p>
 						<p>
 							Links:

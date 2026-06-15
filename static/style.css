@@ -7,8 +7,8 @@
     --font: "Martian Mono", monospace;
     --font-mono: "Martian Mono", monospace;
     --font-math: "Martian Mono", var(--font);
-    --header-width: 1200px;
-    --content-width: 900px;
+    --header-width: min(1200px, 90vw);
+    --content-width: min(900px, 80vw);
     font-size: 14pt;
 }
 
