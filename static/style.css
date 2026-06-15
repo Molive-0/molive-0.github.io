@@ -1,7 +1,7 @@
 :root {
-    --bg-color: #222;
+    --bg-color: #282828;
     --text-color: #fff;
-    --accent-color: #1d1;
+    --accent-color: #1b1;
     --code-bg: #2d2d2d;
     --border-color: #333333;
     --font: "Martian Mono", monospace;
@@ -15,8 +15,8 @@
 @media (prefers-color-scheme: light) {
     :root {
         --bg-color: #eee;
-        --text-color: #111;
-        --accent-color: #161;
+        --text-color: #444;
+        --accent-color: #181;
         --code-bg: #f5f5f5;
         --border-color: #eeeeee;
     }
@@ -273,6 +273,16 @@ table tr:nth-child(even) {
 
 .text-body {
     filter: brightness(70%);
+}
+
+@media (prefers-color-scheme: light) {
+    .tagline {
+        filter: brightness(110%);
+    }
+
+    .text-body {
+        filter: brightness(130%);
+    }
 }
 
 .text-body a:hover {
