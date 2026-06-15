@@ -1,7 +1,7 @@
-# jjsh1g20
+# mo.molive.live
 
 *The code for the website*
 
 Based on slerpy.xyz
 
-https://www.southampton.ac.uk/~jjsh1g20/
+https://mo.molive.live

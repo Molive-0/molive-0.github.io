@@ -1,0 +1,372 @@
+:root {
+    --bg-color: #222;
+    --text-color: #fff;
+    --accent-color: #1d1;
+    --code-bg: #2d2d2d;
+    --border-color: #333333;
+    --font: "Martian Mono", monospace;
+    --font-mono: "Martian Mono", monospace;
+    --font-math: "Martian Mono", var(--font);
+    --header-width: 1200px;
+    --content-width: 900px;
+    font-size: 14pt;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-color: #eee;
+        --text-color: #111;
+        --accent-color: #161;
+        --code-bg: #f5f5f5;
+        --border-color: #eeeeee;
+    }
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.container {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+main.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#home {
+    text-align: left;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+#home h1 {
+    font-size: 6rem;
+    margin: 14px 0;
+}
+
+#home h2 {
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin: 14px 0;
+}
+
+#home p {
+    text-align: justify;
+    margin: 14px 0;
+}
+
+.site-header {
+    padding: 1rem 0;
+}
+
+.site-header .container {
+    max-width: var(--header-width);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.site-header h1 a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+nav a:hover {
+    opacity: 1;
+    color: var(--accent-color);
+}
+
+article {
+    margin-bottom: 3rem;
+}
+
+article header {
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+article p {
+    text-align: justify;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+pre {
+    background-color: var(--code-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    line-height: 1.4;
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0;
+}
+
+pre code {
+    padding: 0;
+    background-color: transparent;
+    font-family: inherit;
+}
+
+code {
+    font-family: var(--font-mono);
+    background-color: var(--code-bg);
+    padding: 0 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+math {
+    font-family: var(--font-math);
+    font-size: 1.2em;
+}
+
+math[display=block] {
+    display: block;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+annotation {
+    display: none;
+}
+
+footer {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.post-preview h2 {
+    margin-bottom: 0.5rem;
+}
+
+.post-preview .summary {
+    margin-top: 0.5rem;
+}
+
+.footnote-definition {
+    display: flex;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.footnote-definition:first-of-type {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footnote-definition .footnote-definition-label {
+    margin-right: 0.5rem;
+    font-weight: bold;
+    min-width: 1.5em;
+    /* Ensure space for double digits */
+    text-align: right;
+}
+
+.footnote-definition p {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+}
+
+table th,
+table td {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+table th {
+    background-color: var(--code-bg);
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: var(--bg-color);
+}
+
+.tagline {
+    filter: brightness(90%);
+}
+
+.text-body {
+    filter: brightness(70%);
+}
+
+.text-body a:hover {
+    color: var(--accent-color);
+}
+
+.smaller {
+    font-size: 70%;
+}
+
+.portfolio {
+    overflow: hidden;
+    width: calc(var(--content-width) * 1.1);
+    /* add this to contain floated children */
+}
+
+.portfolio-data {
+    width: calc(var(--content-width) * 0.7);
+    float: left;
+}
+
+.portfolio-data h1,
+.portfolio-data h2,
+.portfolio-data h3,
+.portfolio-data h4,
+.portfolio-data h5,
+.portfolio-data h6 {
+    font-family: var(--font);
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1;
+}
+
+.portfolio-item hr {
+    width: calc(var(--content-width) * 1.0);
+}
+
+.portfolio-image {
+    width: calc(var(--content-width) * 0.39);
+    float: right;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.portfolio-image img {
+    width: 95%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--accent-color);
+    margin: 5px;
+}
+
+
+#stargaze-webring {
+    margin: 1.5rem auto;
+    display: inline-block;
+}
+
+#stargaze-webring table {
+    background: #296;
+    margin: 0 auto;
+    border-width: 0px;
+    border-style: none;
+    border-radius: 15px;
+    border-collapse: separate;
+}
+
+#stargaze-webring table tr td {
+    padding: 15px;
+    border-width: 0px;
+    border-style: none;
+}
+
+#stargaze-webring .webring-prev {
+    text-align: right;
+}
+
+#stargaze-webring .webring-info {
+    text-align: center;
+}
+
+#stargaze-webring .webring-arrow a {
+    font-size: large;
+    text-decoration: none;
+}
+
+#stargaze-webring .webring-next {
+    text-align: left;
+}
+
+#stargaze-webring .webring-links {
+    font-size: small;
+}

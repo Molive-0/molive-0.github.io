@@ -1,200 +1,186 @@
 <!DOCTYPE html>
-<html>
-
-<!--
-	This originally had a statement complaining about how much I hated this
-	site. Since then, I've realised that I was never trying to make something
-	of use, and as this site is generally useless I guess I've succeeded.
-	I'm not trying to get a job, or impress. I'm making a stupid site, and
-	that's totally fine. If I do try and make a proper site, I should probably
-	try to not blatantly copy slerpy :)
--->
+<html lang="en">
 
 <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Molive</title>
 
-	<meta name="viewport" content="width=device-width">
-	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-	<link href="assets/favicon.png" rel="icon">
+	<link rel="stylesheet" href="static/style.css" />
 	<link rel="stylesheet" href="https://stargaze.group/webring/onionring.css">
-
-	<script id="vsh" type="x-shader/x-vertex">
-			precision mediump float;
-			attribute vec3 pos;
-			varying vec2 uv;
-			void main(void){uv=pos.xy;gl_Position=vec4(pos,1);}
-		</script>
-
-	<script id="fsh" type="x-shader/x-fragment">
-			precision mediump float;
-			uniform float iTime;
-			uniform float aspect;
-			varying vec2 uv;
-			const float PI = 3.14159265;
-			float image(vec2 uv, float time) {
-  				uv = abs((mat2(sin(time/2.),cos(time/2.),-cos(time/2.),sin(time/2.))*(uv-0.5))+0.5);
-   				return sin(pow(uv.y,uv.x)+time*4.)+cos(uv.y*9.+time*5.)+sin(uv.x*4.+time*6.)+cos(pow(uv.x,uv.y)+time*7.)
-    			+sin(pow(uv.y,uv.x)*80.+time*8.)+cos(pow(uv.x,uv.y)*90.+time*9.);
-			}
-			void main(void){
-				vec2 u=uv*vec2(aspect,1)*0.2+0.4;
-				gl_FragColor.xyz = vec3((clamp(
-				abs(vec3(image(u,iTime+0.05),image(u,iTime+0.1),image(u,iTime+0.15)))*0.1 +
-				abs(vec3(image(u,iTime+1.05),image(u,iTime+1.1),image(u,iTime+1.15)))*0.1 +
-				abs(vec3(image(u,iTime+2.05),image(u,iTime+2.1),image(u,iTime+2.15)))*0.1,0.,1.) +
-				vec3((sin(u.y+iTime*2.)+1.)/2.,(sin(u.x+iTime*3.)+1.)/2.,(sin(u.y+iTime*5.)+1.)/2.)*0.3
-				)*0.6);
-				gl_FragColor.w = 1.;
-			}
-		</script>
-
-	<script type="text/javascript" src="assets/webgl-code.js"></script>
-
-	<style>
-		html,
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: #222;
-			min-width: 200px;
-		}
-
-		html {
-			scroll-behavior: smooth;
-		}
-
-		h1 {
-			font-size: 160px;
-		}
-
-		h2 {
-			font-size: 40px;
-		}
-
-		a,
-		p,
-		h1,
-		h2,
-		td {
-			margin-top: 0px;
-			margin-bottom: 0px;
-			text-align: justify;
-			font-family: 'Montserrat', sans-serif;
-			color: #e7ffe7;
-		}
-
-		.title-card {
-			position: relative;
-			overflow: hidden;
-			text-shadow: 0 0 32px #00000080;
-		}
-
-		.links a {
-			font-size: 20px;
-			margin-right: 10px;
-			align-self: stretch;
-			text-decoration: underline;
-		}
-
-		.title-card a:hover {
-			text-decoration: none;
-		}
-
-		.title-card p,
-		h2 {
-			margin-bottom: 20px;
-		}
-
-		.bg {
-			z-index: -100;
-			vertical-align: bottom;
-			height: 100vh;
-		}
-
-		#bg-live {
-			width: 100%;
-		}
-
-		.wrapper {
-			margin: 100px auto;
-			width: 42em;
-		}
-
-		.fg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-		}
-
-		#stargaze-webring {
-			margin: 0 auto;
-			padding: 15px;
-			/* creates some space around the widget */
-		}
-
-		#stargaze-webring table {
-			background-color: #55555555;
-		}
-
-		@media screen and (max-width: 800px) {
-
-			.wrapper {
-				margin: 32px auto;
-				width: 75%;
-			}
-
-			.title-card h2 {
-				font-size: 5vw;
-			}
-
-			.title-card h1 {
-				font-size: 20vw;
-			}
-		}
-	</style>
+	<link rel="icon" href="static/favicon.png">
 </head>
 
-<body onload="setupWebGL();">
-	<div class="title-card">
-		<canvas class="bg" id="bg-live"></canvas>
-		<div class="fg">
-			<div class="wrapper">
-				<h1>Molive</h1>
-				<h2>/'mɒ:lɪv/ (sometimes lowercase)</h2>
-				<p>He/They • Coder • """Shader Artist""" • Software Developer</p>
-				<p></p>
-				<p>
-					Hello! I'm Molive. I sometimes create demoscene productions, with extremely varying success (but
-					they're never that good).
-					Below are some links that you can press, although I cannot prepare you for the disappointment that
-					you will get if you do.
-				</p>
-				<p>
-					I've <s>stolen</s> borrowed a lot of this site from
-					<a href="https://www.slerpy.xyz/legacy">slerpy</a>.
-					As such, this site shouldn't be taken <i>too</i> seriously.
-				</p>
-				<div class="links">
-					<a href="https://demozoo.org/sceners/72284/">Demozoo</a>
-					<a href="https://www.pouet.net/user.php?who=100627">Pouët</a>
-					<a href="https://www.shadertoy.com/user/molive">Shadertoy</a>
-					<a href="https://github.com/Molive-0">Github</a>
-					<a href="https://icosahedron.website/@Molive">Mastodon</a>
-					<a href="https://stargaze.group/">Stargaze</a>
-					<a href="https://scrimblo.foundation/">???</a>
-				</div>
-				<div id="stargaze-webring">
-					<script type="text/javascript" src="https://stargaze.group/webring/onionring-variables.js"></script>
-					<script type="text/javascript" src="https://stargaze.group/webring/onionring-widget.js"
-						charset="utf-8"></script>
-				</div>
-			</div>
+<body>
+	<!--
+	<header class="site-header">
+		<div class="container">
+			<h1><a href="">Molive</a></h1>
 		</div>
-	</div>
+	</header>
+-->
+
+	<main class="container">
+
+		<section id="home">
+			<div class="content">
+				<h1>Molive</h1>
+				<h2>/'mɒ:lɪv/ <span class="smaller">(otherwise known as John Hunter)</span>
+				</h2>
+				<p class="tagline">He/They • Senior Software Engineer • Graphics Programmer</p>
+				<div class="text-body">
+					<div>
+						Hello! I'm Molive, a senior software engineer in Cheltenham.
+					</div>
+					<div>
+						I sometimes create demoscene productions, with varying success (but they're never that good).
+					</div>
+					<div>
+						Scroll down for my portfolio.</div>
+				</div>
+				<div>
+					<h4>Internal Links</h4>
+					<p class="text-body">
+						<a href="dump/CV - CompSci.pdf">CV</a> |
+						<a href="dump/Final_Report.pdf">University Third Year Report</a> |
+						<a href="dump/john_5x4.png">Photo of Me! :D</a>
+					</p>
+				</div>
+				<div>
+					<h4>External Links</h4>
+					<p class="text-body">
+						<a href="https://demozoo.org/sceners/72284/">Demozoo</a> |
+						<a href="https://www.pouet.net/user.php?who=100627">Pouët</a> |
+						<a href="https://www.shadertoy.com/user/molive">Shadertoy</a> |
+						<a href="https://github.com/Molive-0">Github</a> |
+						<a href="https://icosahedron.website/@Molive">Mastodon</a> |
+						<a href="https://stargaze.group/">Stargaze</a> |
+						<a href="https://git.stargaze.group/molive">Stargaze Git</a> |
+						<a href="https://scrimblo.foundation/">Scrimblo Foundation</a>
+					</p>
+				</div>
+
+			</div>
+			<div id="stargaze-webring">
+				<script type="text/javascript" src="https://stargaze.group/webring/onionring-variables.js"></script>
+				<script type="text/javascript" src="https://stargaze.group/webring/onionring-widget.js"
+					charset="utf-8"></script>
+			</div>
+			<div class="portfolio">
+				<h2>Portfolio</h2>
+				<hr />
+				<!-- Sanitised -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>Sanitised</h4>
+						<h5>2021 • Executable Graphics • Windows</h5>
+						<p class="text-body">
+							3268 byte executable that renders a hand sanitiser bottle. The hand sanitiser within the
+							bottle correctly refracts light, and projects caustics onto the backdrop (!). Takes
+							30 seconds to converge. Written in Blossom and GLSL.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/graphics/292421/">Demozoo</a> |
+							<a href="https://www.shadertoy.com/view/3ttBRB">Shadertoy</a> |
+							<a
+								href="https://files.scene.org/get/parties/2021/revision21/4k-executable-graphics/sanitised.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="https://www.shadertoy.com/view/3ttBRB"><img src="static/portfolio/sanitised.png"
+								alt="A nearly black-and-white render of a hand sanitiser bottle on a white backdrop" />
+						</a>
+					</div>
+					<hr />
+				</div>
+				<!-- By Molive, Aged 18 -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>By Molive, Aged 18</h4>
+						<h5>2020 • Executable Graphics • Windows</h5>
+						<p class="text-body">
+							1800 byte executable that renders a child's hand painted watercolour image. Written in C
+							and GLSL, using OpenGL.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/music/205209/">Demozoo</a> |
+							<a href="https://www.shadertoy.com/view/3ldczS">Shadertoy</a> |
+							<a
+								href="https://files.scene.org/get/parties/2020/hogmanay20/graphics/bymoliveaged18.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="https://www.shadertoy.com/view/3ldczS"><img
+								src="static/portfolio/by_molive_aged_18.jpg"
+								alt="A child's hand painted watercolour image, featuring the child outside a house with parents, along with grass and the sun" />
+						</a>
+					</div>
+					<hr />
+				</div>
+				<!-- A Rude Interruption -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>A Rude Interruption</h4>
+						<h5>2019 • Music • Super Nintendo Entertainment System</h5>
+						<p class="text-body">
+							Joke production which happens to showcase playing back CD-quality audio on the SNES.
+							Technique is based on one by Blaarg, and is cycle-accurate. The fire alarm had gone off at
+							the party earlier.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/music/205209/">Demozoo</a> |
+							<a
+								href="https://files.scene.org/get/parties/2019/nova19/old_school_music/molive_arudeinterruption.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<span>[no image]</span>
+					</div>
+					<hr />
+				</div>
+				<!-- SNES-NICCC 2000 -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>SNES-NICCC 2000</h4>
+						<h5>2019 • Demo • Super Nintendo Entertainment System</h5>
+						<p class="text-body">
+							Created a polygon renderer from scratch for the SNES using the SuperFX expansion chip. Runs
+							at a higher than normal framerate using a quadruple buffering technique.
+						</p>
+						<p>
+							Links:
+							<a href="https://demozoo.org/productions/202485/">Demozoo</a> |
+							<a href="https://www.youtube.com/watch?v=dOqxLBZiBRA">Video</a> |
+							<a
+								href="https://files.scene.org/get/parties/2019/revision19/oldskool-demo/snes-niccc-2000.zip">Download</a>
+						</p>
+					</div>
+					<div class="portfolio-image">
+						<a href="https://www.youtube.com/watch?v=dOqxLBZiBRA"><img
+								src="static/portfolio/snes-niccc-2000.png"
+								alt="screenshot of a low resolution 3D polygonal environment" />
+						</a>
+					</div>
+					<hr />
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2026 molive</p>
+		</div>
+	</footer>
 </body>
 
 </html>
