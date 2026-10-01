@@ -1,4 +1,19 @@
 [[portfolio]]
+title = "bevy-tape-drive"
+date = "2026-present "
+tags = ["Engine", "Bevy"]
+description = """
+I've been trying to integrate my Tape Drive tech into something where it's actually usable, and I decided to try <a href="https://bevy.org/">Bevy</a>.
+Unfortunately, tape-drive requires full raytracing pipelines, and Bevy is based on WGPU, which only supports ray query.
+For some reason, this has not yet stopped me.
+"""
+links = [
+    { title = "Stargaze Git", href = "https://git.stargaze.group/molive/bevy-tape-drive" },
+]
+image = { standin = "no image" }
+
+
+[[portfolio]]
 title = "Tape Drive"
 date = "2024-present "
 tags = ["Engine", "Windows, Linux"]
