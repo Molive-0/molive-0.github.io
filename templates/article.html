@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Molive - {{ title }}</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../static/style.css" />
+	<link rel="icon" href="static/favicon.png">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="../..">mo.molive.live</a></h1>
+            <nav>
+                <ul>
+                    <li><a href="./index.html">blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+	<main class="container">
+        <section id="blog_index">
+            <div class="content">
+				{{ content }}
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2026 molive</p>
+		</div>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+[[portfolio]]
+title = "Tape Drive"
+date = "2024-present "
+tags = ["Engine", "Windows, Linux"]
+description = """
+Custom rendering solution for signed distance fields defined as mathematical functions.
+Works by JIT compiling them to SPIR-V shaders. Based originally on my work at university.
+Renders entirely using the raytracing pipeline, and can reach 400fps at 1080p. Written in
+Vulkan, GLSL, and Rust. In active development.
+"""
+links = [
+    { title = "Stargaze Git", href = "https://git.stargaze.group/molive/tape-drive" },
+]
+image = { path = "tape-drive.png", href = "static/portfolio/tape-drive.png", alt = "A wobbly implicit surface being lit in blue and orange. An options panel is open to the left" }
+
+[[portfolio]]
+title = "Pico-niccc-480p"
+date = "2023"
+tags = ["Demo", "Raspberry Pi Pico 1"]
+description = """
+Version of PICO NICCC (see later in list) that renders 4x as many pixels - but,
+counterintuitively, consumes <i>less</i> framebuffer RAM. Uses a custom, insane format for
+storing intermediate frames.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/productions/328163/" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2023/ontrack23/wild/piconiccc480.tar.gz" },
+]
+image = { standin = "no image" }
+
+[[portfolio]]
+title = "Unidentified Flying Object"
+date = "2023"
+tags = ["Demo", "Executable Graphics", "Windows"]
+description = """
+2194 byte executable that renders a blurry falling kitten. Coded in a couple hours during a party.
+Written in Blossom and GLSL. Based on <a href="static/portfolio/ufo_original_inspiration.jpg">this image</a>.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/graphics/322461/" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2023/revision23/4k_executable_graphics/moliveufo.zip" },
+]
+image = { path = "molive_ufo.png", href = "static/portfolio/molive_ufo.png", alt = "A blurry render of a black kitten falling through the frame" }
+
+[[portfolio]]
+title = "Robot Rock"
+date = "2022"
+tags = ["Music", "Super Nintendo Entertainment System"]
+description = """
+Extremely accurate cover of Robot Rock by Daft Punk for the SNES. Full CD-quality. Uses
+cycle accurate code to decompress ADPCM audio on the fly, and requires a custom cart to
+function correctly. Play back in Higan or on an FXPAK.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/productions/312188/" },
+    { title = "Youtube", href = "https://www.youtube.com/watch?v=uq5wBj-E2Zw" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2022/nova22/old_school_demo/molive-robotrock.zip" },
+]
+image = { path = "robot-rock.png", href = "https://www.youtube.com/watch?v=uq5wBj-E2Zw", alt = "A SNES version of the cover for the single Robot Rock by Daft Punk" }
+
+[[portfolio]]
+title = "PICO NICCC"
+date = "2022"
+tags = ["Demo", "Raspberry Pi Pico 1"]
+subnote = "Placed third in competition!"
+description = """
+Port of the ST-NICCC 2000 demo. Uses a custom polygon renderer designed for the RP2040. Runs
+at an astounding 1000fps if tweaked. Comes with an absolutely unhinged 4am explanation
+video.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/productions/307538/" },
+    { title = "Youtube", href = "https://www.youtube.com/watch?v=rkz4qkpBueg" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2022/revision22/wild/piconiccc.zip" },
+]
+image = { path = "pico-niccc.jpg", href = "https://www.youtube.com/watch?v=rkz4qkpBueg", alt = "Molive, in their bedroom, holding a Raspberry Pi Pico, with the demo playing picture-in-picture" }
+
+[[portfolio]]
+title = "Sanitised"
+date = "2021"
+tags = ["Executable Graphics", "Windows"]
+description = """
+3268 byte executable that renders a hand sanitiser bottle. The hand sanitiser within the
+bottle correctly refracts light, and projects caustics onto the backdrop (!). Takes
+30 seconds to converge. Written in Blossom and GLSL.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/graphics/292421/" },
+    { title = "Shadertoy", href = "https://www.shadertoy.com/view/3ttBRB" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2021/revision21/4k-executable-graphics/sanitised.zip" },
+]
+image = { path = "sanitised.png", href = "https://www.shadertoy.com/view/3ttBRB", alt = "A nearly black-and-white render of a hand sanitiser bottle on a white backdrop" }
+
+[[portfolio]]
+title = "By Molive, Aged 18"
+date = "2020"
+tags = ["Executable Graphics", "Windows"]
+description = """
+1800 byte executable that renders a child's hand painted watercolour image. Written in C
+and GLSL, using OpenGL.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/graphics/288442/" },
+    { title = "Shadertoy", href = "https://www.shadertoy.com/view/3ldczS" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2020/hogmanay20/graphics/bymoliveaged18.zip" },
+]
+image = { path = "by_molive_aged_18.jpg", href = "https://www.shadertoy.com/view/3ldczS", alt = "A child's hand painted watercolour image, featuring the child outside a house with parents, along with grass and the sun" }
+
+[[portfolio]]
+title = "Wikilink"
+date = "2020"
+tags = ["Tool", "Windows"]
+description = """
+A wikiracer that performs a breadth-first search on Wikipedia (and other mediawikis) to
+find the shortest connection between two pages by following links. Appears to have broken
+after a change in the Wikipedia API.
+"""
+links = [{ title = "Github", href = "https://github.com/Molive-0/wikilink" }]
+image = { standin = "no image" }
+
+[[portfolio]]
+title = "BasicTracker"
+date = "2020"
+tags = ["Tool", "Windows (C#)"]
+description = """
+A simple music tracker. Written as my A-level computer science project. May not run on new systems.
+"""
+links = [
+    { title = "Github", href = "https://github.com/Molive-0/BasicTracker" },
+]
+image = { standin = "image to follow when/if I can get it running" }
+
+[[portfolio]]
+title = "A Rude Interruption"
+date = "2019"
+tags = ["Music", "Super Nintendo Entertainment System"]
+description = """
+Joke production which happens to showcase playing back CD-quality audio on the SNES.
+Technique is based on one by Blargg, and is cycle-accurate. The fire alarm had gone off at
+the party earlier.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/music/205209/" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2019/nova19/old_school_music/molive_arudeinterruption.zip/" },
+]
+image = { standin = "no image" }
+
+[[portfolio]]
+title = "SNES-NICCC 2000"
+date = "2019"
+tags = ["Demo", "Super Nintendo Entertainment System"]
+description = """
+Port of the ST-NICCC 2000 demo. Created a polygon renderer from scratch for the SNES using
+the SuperFX expansion chip. Runs at a higher than normal framerate using a quadruple
+buffering technique.
+"""
+links = [
+    { title = "Demozoo", href = "https://demozoo.org/productions/202485/" },
+    { title = "Video", href = "https://www.youtube.com/watch?v=dOqxLBZiBRA" },
+    { title = "Download", href = "https://files.scene.org/get/parties/2019/revision19/oldskool-demo/snes-niccc-2000.zip" },
+]
+image = { path = "snes-niccc-2000.png", href = "https://www.youtube.com/watch?v=dOqxLBZiBRA", alt = "screenshot of a low resolution 3D polygonal environment" }

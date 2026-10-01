@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Molive</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="static/style.css" />
+	<link rel="stylesheet" href="https://stargaze.group/webring/onionring.css">
+	<link rel="icon" href="static/favicon.png">
+
+	<a hidden rel="me" href="https://icosahedron.website/@Molive">Mastodon</a>
+	<a hidden rel="me" href="https://molive.bsky.social/">Bluesky</a>
+</head>
+
+<body>
+	<header class="site-header">
+		<div class="container">
+			<h1><a href=".">mo.molive.live</a></h1>
+			<nav>
+				<ul>
+					<li><a href="blog">blog</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main class="container">
+		<section id="home">
+			<div class="content">
+				<h1>Molive</h1>
+				<h2><a href="https://ipa-reader.com/?text=m%C9%92%3Al%C9%AAv&voice=Amy">/'mɒ:lɪv/</a> <span
+						class="smaller">(otherwise known as John Hunter)</span>
+				</h2>
+				<p class="tagline">He/They • Senior Software Engineer • Graphics Programmer</p>
+				<div class="text-body">
+					<div>
+						Hello! I'm Molive, a senior software engineer based in Cheltenham, England.
+					</div>
+					<div>
+						I sometimes create demoscene productions. Check my portfolio below for some highlights, or my
+						Demozoo page for a full list.
+					</div>
+					<div>
+						Scroll down this page for my portfolio.</div>
+				</div>
+				<div>
+					<h4>Internal Links</h4>
+					<p class="text-body">
+						<a href="dump/CV - CompSci.pdf">CV</a> |
+						<a href="dump/Final_Report.pdf">University Third Year Report</a> |
+						<a href="dump/john_5x4.png">Photo of Me! :D</a>
+					</p>
+				</div>
+				<div>
+					<h4>External Links</h4>
+					<p class="text-body">
+						<a href="https://demozoo.org/sceners/72284/">Demozoo</a> |
+						<a href="https://www.pouet.net/user.php?who=100627">Pouët</a> |
+						<a href="https://www.shadertoy.com/user/molive">Shadertoy</a> |
+						<a href="https://github.com/Molive-0">Github</a> |
+						<a href="https://icosahedron.website/@Molive">Mastodon</a> |
+						<a href="https://stargaze.group/">Stargaze</a> |
+						<a href="https://git.stargaze.group/molive">Stargaze Git</a> |
+						<a href="https://scrimblo.foundation/">Scrimblo Foundation</a>
+					</p>
+				</div>
+			</div>
+			<div id="stargaze-webring">
+				<script type="text/javascript" src="https://stargaze.group/webring/onionring-variables.js"></script>
+				<script type="text/javascript" src="https://stargaze.group/webring/onionring-widget.js"
+					charset="utf-8"></script>
+			</div>
+			<div class="portfolio">
+				<h2>Portfolio</h2>
+				<hr />
+				{% for item in portfolio %}
+				<!-- {{ item.title }} -->
+				<div class="portfolio-item">
+					<div class="portfolio-data">
+						<h4>{{ item.title }}</h4>
+						<h5>{{ item.date }}{% for tag in item.tags %} • {{ tag }}{% endfor %}</h5>
+						{% if item.subnote %}<h5>{{ item.subnote }}</h5>{% endif %}
+						<p class="text-body">
+							{{ item.description }}
+						</p>
+						<p>
+							Links:
+							{% for link in item.links %}
+							<a href="{{ link.href }}">{{ link.title }}</a> {% if not loop.last %}|{% endif %}
+							{% endfor %}
+						</p>
+					</div>
+					<div class="portfolio-image">
+						{% if item.image.standin %}
+							<span>[{{ item.image.standin }}]</span>
+						{% else %}
+						<a href="{{ item.image.href }}">
+							<img src="static/portfolio/{{ item.image.path }}"
+								alt="{{ item.image.alt }}" />
+						</a>
+						{% endif %}
+					</div>
+					<hr />
+				</div>
+  				{% endfor %}
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2026 molive</p>
+		</div>
+	</footer>
+</body>
+
+</html>

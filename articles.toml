@@ -1,0 +1,7 @@
+[[article]]
+title = "test"
+date = "2026"
+tags = ["Windows", "linux"]
+description = "Very cool. I regard this fondly."
+image = { path = "test.png", alt = "thingy" }
+filename = "test.md"

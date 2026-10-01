@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Molive - Blog</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="../static/style.css" />
+	<link rel="icon" href="static/favicon.png">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="..">mo.molive.live</a></h1>
+            <nav>
+                <ul>
+                    <li><a href=".">blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+	<main class="container">
+        <section id="blog_index">
+            <div class="content">
+				<div class="portfolio">
+					<h2>Blog</h2>
+					<hr />
+					{% for item in article %}
+					<!-- {{ item.title }} -->
+					<div class="portfolio-item">
+						<div class="portfolio-data">
+							<h4>{{ item.title }}</h4>
+							<h5>{{ item.date }}{% for tag in item.tags %} • {{ tag }}{% endfor %}</h5>
+							<p class="text-body">
+								{{ item.description }}
+							</p>
+						</div>
+						<div class="portfolio-image">
+							{% if item.image.standin %}
+								<span>[{{ item.image.standin }}]</span>
+							{% else %}
+							<a href="{{ item.image.href }}">
+								<img src="static/article/{{ item.image.path }}"
+									alt="{{ item.image.alt }}" />
+							</a>
+							{% endif %}
+						</div>
+						<hr />
+					</div>
+  					{% endfor %}
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">
+			<p>&copy; 2026 molive</p>
+		</div>
+	</footer>
+</body>
+
+</html>

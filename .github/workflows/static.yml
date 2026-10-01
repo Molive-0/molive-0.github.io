@@ -35,11 +35,18 @@ jobs:
                   lfs: true
             - name: Setup Pages
               uses: actions/configure-pages@v5
+            - name: Install python
+              uses: actions/setup-python@v7
+              with:
+                  python-version: "3.13"
+            - name: Install pandoc, jinja2
+              run: sudo apt install -y pandoc python-jinja2
+            - name: Generate
+              run: python generate.py
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  # Upload entire repository
-                  path: "."
+                  path: "output"
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v5
