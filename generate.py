@@ -16,6 +16,7 @@ shutil.rmtree(OUTPUT_DIR, True)
 os.mkdir(OUTPUT_DIR)
 for dir in COPY_DIRS:
     shutil.copytree(dir, OUTPUT_DIR + dir)
+shutil.copy("CNAME", OUTPUT_DIR + "CNAME")
 
 # Index.html
 with open(PORTFOLIO_PATH, "rb") as p:
