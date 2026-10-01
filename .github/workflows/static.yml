@@ -40,7 +40,7 @@ jobs:
               with:
                   python-version: "3.13"
             - name: Install pandoc, jinja2
-              run: sudo apt install -y pandoc python-jinja2
+              run: sudo apt install -y pandoc python3-jinja2
             - name: Generate
               run: python generate.py
             - name: Upload artifact
