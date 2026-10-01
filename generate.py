@@ -70,7 +70,7 @@ for article in articles["article"]:
     filename = article["href"]
     article_out = subprocess.run(["pandoc", ARTICLES_DIR + article["filename"], "-t" "HTML"], capture_output=True, text = True)
     output = template.render(title=article["title"], content=article_out.stdout)
-    out_path = BLOG_DIR + filename
+    out_path = BLOG_DIR + filename + ".html"
     with open(out_path, "w") as f:
         f.write(output)
     fe = fg.add_entry()
