@@ -1,6 +1,25 @@
 [[article]]
-title = "test"
-date = "2026"
+title = "test1"
+date = 2026-10-01 20:41:09Z
+updated = 2026-10-01 20:41:09Z
+tags = ["Windows", "linux"]
+description = "Very cool. I regard this fondly."
+image = { path = "test.png", alt = "thingy" }
+filename = "test.md"
+
+[[article]]
+title = "test2"
+date = 2026-10-02 20:41:09Z
+updated = 2026-10-02 20:41:09Z
+tags = ["Windows", "linux"]
+description = "Very cool. I regard this fondly."
+image = { path = "test.png", alt = "thingy" }
+filename = "test.md"
+
+[[article]]
+title = "test3"
+date = 2026-10-03 20:41:09Z
+updated = 2026-10-03 20:41:09Z
 tags = ["Windows", "linux"]
 description = "Very cool. I regard this fondly."
 image = { path = "test.png", alt = "thingy" }

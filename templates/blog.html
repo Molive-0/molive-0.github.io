@@ -11,6 +11,8 @@
 
 	<link rel="stylesheet" href="../static/style.css" />
 	<link rel="icon" href="static/favicon.png">
+
+	<meta name="fediverse:creator" content="@molive@icosahedron.website">
 </head>
 
 <body>
@@ -34,8 +36,8 @@
 					<!-- {{ item.title }} -->
 					<div class="portfolio-item">
 						<div class="portfolio-data">
-							<h4>{{ item.title }}</h4>
-							<h5>{{ item.date }}{% for tag in item.tags %} • {{ tag }}{% endfor %}</h5>
+							<a href="{{ item.href }}"><h4>{{ item.title }}</h4></a>
+							<h5>{{ item.date_formatted }}{% for tag in item.tags %} • {{ tag }}{% endfor %}</h5>
 							<p class="text-body">
 								{{ item.description }}
 							</p>
@@ -44,8 +46,8 @@
 							{% if item.image.standin %}
 								<span>[{{ item.image.standin }}]</span>
 							{% else %}
-							<a href="{{ item.image.href }}">
-								<img src="static/article/{{ item.image.path }}"
+							<a href="{% if item.image.href %}{{ item.image.href }}{% else %}{{ item.href }}{% endif %}">
+								<img src="../static/article/{{ item.image.path }}"
 									alt="{{ item.image.alt }}" />
 							</a>
 							{% endif %}
