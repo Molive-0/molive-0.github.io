@@ -82,6 +82,10 @@ for article in articles["article"]:
     fe.published(article["date"])
     fe.content(article_out.stdout, URL + "blog/" + filename + "/")
     fe.link( href=URL + "blog/" + filename + "/", rel='self' )
+    tags = []
+    for tag in article["tags"]:
+        tags.append({"term":tag})
+    fe.category(tags)
 
 fg.atom_file(BLOG_DIR + 'atom.xml')
 fg.rss_file(BLOG_DIR + 'rss.xml')
