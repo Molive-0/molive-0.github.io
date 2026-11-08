@@ -1,8 +1,8 @@
 [[article]]
-title = "Test Article"
+title = "Hello!"
 date = 2026-10-01 20:41:09Z
 updated = 2026-10-01 21:29:16Z
 tags = ["debug", "test"]
-description = "This is a test article"
+description = "Welcome to my blog!"
 image = { path = "FMsGbu0XEAUEyfx.jpg", alt = "THIS KITTEN is not a certified audio/video technician" }
-filename = "test.md"
+filename = "intro.md"
