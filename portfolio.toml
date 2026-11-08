@@ -3,7 +3,7 @@ title = "bevy-tape-drive"
 date = "2026-present "
 tags = ["Engine", "Bevy"]
 description = """
-Integration of Tape Drive into <a href="https://bevy.org/">Bevy</a>'s Solari, an
+Integration of Tape Drive (see below) into <a href="https://bevy.org/">Bevy</a>'s Solari, an
 implementation of ReSTIR. Implicit surfaces contribute to GI and appear in reflections.
 Does not yet work for the realtime renderer due to primary rays. Currently uses the 3D
 textures to render, true Tape Drive rendering is upcoming.
