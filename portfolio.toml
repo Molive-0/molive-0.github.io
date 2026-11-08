@@ -3,15 +3,15 @@ title = "bevy-tape-drive"
 date = "2026-present "
 tags = ["Engine", "Bevy"]
 description = """
-I've been trying to integrate my Tape Drive tech into something where it's actually usable, and I decided to try <a href="https://bevy.org/">Bevy</a>.
-Unfortunately, tape-drive requires full raytracing pipelines, and Bevy is based on WGPU, which only supports ray query.
-For some reason, this has not yet stopped me.
+Integration of Tape Drive into <a href="https://bevy.org/">Bevy</a>'s Solari, an
+implementation of ReSTIR. Implicit surfaces contribute to GI and appear in reflections.
+Does not yet work for the realtime renderer due to primary rays. Currently uses the 3D
+textures to render, true Tape Drive rendering is upcoming.
 """
 links = [
     { title = "Stargaze Git", href = "https://git.stargaze.group/molive/bevy-tape-drive" },
 ]
-image = { standin = "no image" }
-
+image = { path = "bevy_tape_drive.png", href = "static/portfolio/bevy_tape_drive.png", alt = "A small scene (Pica Pica) with an orange torus in the middle. It contributes to GI and appears in reflections" }
 
 [[portfolio]]
 title = "Tape Drive"
